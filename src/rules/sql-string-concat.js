@@ -1,5 +1,10 @@
 const CODE = /\.(?:js|jsx|mjs|cjs|ts|tsx|py|rb|php|go|java|kt)$/;
-const SQL_WORD = /\b(?:SELECT|INSERT\s+INTO|UPDATE|DELETE\s+FROM)\b/i;
+/**
+ * The shape of a statement, not just its first word: interface copy such as `Select ${n} items` or
+ * `Last update: ${when}` uses the same words, and matching case-insensitively on the word alone
+ * flagged it as SQL injection.
+ */
+const SQL_WORD = /\bSELECT\s+(?:\*|DISTINCT\b|\$\{[^}]*\}|[\w."`]+(?:\s*,\s*[\w."`]+)*)\s+FROM\s+[\w."`$]|\bINSERT\s+INTO\s+[\w."`$]|\bUPDATE\s+[\w."`$]+\s+SET\b|\bDELETE\s+FROM\s+[\w."`$]/i;
 const INTERPOLATION = /\$\{[^}]*\}/;
 const TEMPLATE = /`(?:[^`\\]|\\.)*`/g;
 const CONCAT = /(['"])(?:(?!\1)[^\\]|\\.)*\b(?:SELECT|INSERT\s+INTO|UPDATE|DELETE\s+FROM)\b(?:(?!\1)[^\\]|\\.)*\1\s*\+|\+\s*(['"])(?:(?!\2)[^\\]|\\.)*\b(?:SELECT|INSERT\s+INTO|UPDATE|DELETE\s+FROM)\b/i;
