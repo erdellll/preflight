@@ -9,6 +9,7 @@ Every check lives in `src/rules/<id>.js`. Want one that isn't here? [Add it](../
 | `supabase-rls-disabled` | Security | critical | A SQL migration that creates a table without enabling row-level security |
 | `stripe-webhook-unverified` | Security | critical | A Stripe webhook handler that never verifies the signature with `constructEvent` |
 | `cors-wildcard` | Security | warning | `cors()` with no options, or `Access-Control-Allow-Origin: *` |
+| `sql-string-concat` | Security | warning | SQL built with a template literal or `+` from a value that comes from a request, instead of a bound parameter |
 | `no-error-monitoring` | Reliability | info | A JavaScript app with no Sentry, PostHog, Bugsnag, Rollbar or LogRocket |
 | `no-privacy-policy` | Launch basics | warning | An app that signs users up or collects emails but has no privacy page |
 | `missing-meta-tags` | Launch basics | warning | An `index.html` or Next.js root layout without a title, description or share image |
