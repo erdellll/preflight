@@ -43,7 +43,7 @@ Scant een bewust kapotte demo-app (elk geheim is nep), zodat je kunt zien hoe ee
 |---|---|
 | 🔑 Livegeheimen in clientcode | 🗄️ Supabase-tabellen zonder row-level security |
 | 📄 `.env`-bestanden die gecommit kunnen worden | 💳 Stripe-webhooks zonder handtekeningcontrole |
-| 🌐 CORS open voor elke website | 🚨 Geen foutmonitoring |
+| 🌍 CORS open voor elke website | 🚨 Geen foutmonitoring |
 | 🔒 Geen privacybeleid | 🔗 Ontbrekende titel, beschrijving of deelafbeelding |
 
 ## Opties
@@ -119,7 +119,7 @@ Symbolische links worden bewust overgeslagen, zowel bestanden als mappen. Ze vol
 
 ## Bijdragers
 
-Bedankt aan iedereen die Preflight beter heeft gemaakt! 🤝
+Bedankt aan iedereen die Preflight beter heeft gemaakt! 💛
 
 <a href="https://github.com/erdellll/preflight/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=erdellll/preflight" alt="Preflight contributors" />
