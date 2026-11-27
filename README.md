@@ -57,7 +57,6 @@ npx vibe-preflight --json          # machine-readable output ([JSON format](docs
 npx vibe-preflight --ignore a,b    # skip checks by id
 npx vibe-preflight --fail-on warning   # exit code policy: critical (default) | warning | never
 ```
-
 Set NO_COLOR=1 to turn off coloured output.
 
 Silence a finding that points at a line with `// preflight-ignore <check-id>` on that line or the line above. A finding about a whole file (a committed `.env`, an unverified webhook) takes the same comment in the file's first five lines. Anything you want gone project-wide, including findings with no file at all, uses `--ignore <check-id>`.
@@ -68,7 +67,8 @@ Silence a finding that points at a line with `// preflight-ignore <check-id>` on
 - run: npx vibe-preflight --fail-on critical
 ```
 
-The command exits with code 1 when a finding reaches the `--fail-on` level, so a leaked key blocks the merge. See [docs/ci.md](docs/ci.md) for a full workflow.
+The command exits with code 1 when a finding reaches the `--fail-on` level, so a leaked key blocks the merge.
+See [docs/ci.md](docs/ci.md) for a full workflow.
 
 ## Use it inside Claude Code
 
