@@ -13,7 +13,7 @@ Preflight scans your project for leaked keys, open databases, unverified payment
 [![npm downloads](https://img.shields.io/npm/dm/vibe-preflight)](https://www.npmjs.com/package/vibe-preflight)
 [![CI](https://github.com/erdellll/preflight/actions/workflows/ci.yml/badge.svg)](https://github.com/erdellll/preflight/actions/workflows/ci.yml)
 
-**English** · [Español](docs/README.es.md) · [Português (BR)](docs/README.pt-BR.md) · [Français](docs/README.fr.md) · [Deutsch](docs/README.de.md) · [Türkçe](docs/README.tr.md) · [Bahasa Indonesia](docs/README.id.md) · [हिन्दी](docs/README.hi.md) · [简体中文](docs/README.zh-CN.md) · [日本語](docs/README.ja.md) · [한국어](docs/README.ko.md)
+**English** · [Español](docs/README.es.md) · [Português (BR)](docs/README.pt-BR.md) · [Français](docs/README.fr.md) · [Deutsch](docs/README.de.md) · [Türkçe](docs/README.tr.md) · [Bahasa Indonesia](docs/README.id.md) · [हिन्दी](docs/README.hi.md) · [简体中文](docs/README.zh-CN.md) · [日本語](docs/README.ja.md) · [한국어](docs/README.ko.md) · [Українська](docs/README.uk.md)
 
 ![Preflight report card](docs/assets/report-card.png)
 
@@ -57,6 +57,7 @@ npx vibe-preflight --json          # machine-readable output ([JSON format](docs
 npx vibe-preflight --ignore a,b    # skip checks by id
 npx vibe-preflight --fail-on warning   # exit code policy: critical (default) | warning | never
 ```
+
 Set NO_COLOR=1 to turn off coloured output.
 
 Silence a finding that points at a line with `// preflight-ignore <check-id>` on that line or the line above. A finding about a whole file (a committed `.env`, an unverified webhook) takes the same comment in the file's first five lines. Anything you want gone project-wide, including findings with no file at all, uses `--ignore <check-id>`.
@@ -67,8 +68,7 @@ Silence a finding that points at a line with `// preflight-ignore <check-id>` on
 - run: npx vibe-preflight --fail-on critical
 ```
 
-The command exits with code 1 when a finding reaches the `--fail-on` level, so a leaked key blocks the merge.
-See [docs/ci.md](docs/ci.md) for a full workflow.
+The command exits with code 1 when a finding reaches the `--fail-on` level, so a leaked key blocks the merge. See [docs/ci.md](docs/ci.md) for a full workflow.
 
 ## Use it inside Claude Code
 
