@@ -1,15 +1,20 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, rmSync } from 'node:fs';
 import { buildDemo } from '../src/demo.js';
 import { run } from '../src/run.js';
 import { loadRules } from '../src/rules/index.js';
 import { main } from '../src/cli.js';
 
 test('demo app scores below 50 and trips at least 6 checks', async () => {
-  const report = await run(buildDemo());
-  assert.ok(report.score < 50, `score ${report.score}`);
-  assert.ok(new Set(report.results.map((r) => r.ruleId)).size >= 6);
+  const dir = buildDemo();
+  try {
+    const report = await run(dir);
+    assert.ok(report.score < 50, `score ${report.score}`);
+    assert.ok(new Set(report.results.map((r) => r.ruleId)).size >= 6);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 test('cli --demo scans the demo app', async () => {
